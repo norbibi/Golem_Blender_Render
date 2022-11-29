@@ -1,4 +1,4 @@
-# Golem Blender Render v1
+# Golem Blender Render  
 
 The purpose of this repository is to provide a decentralized tool to render your Blender projects.
 
