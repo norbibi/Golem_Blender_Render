@@ -22,7 +22,8 @@ This application can be run on the following two subnets:
 For the first one nothing to do, rETH & tGLM will be funded automatically on your account.
 For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNT PLEASE).
 
-Private key must be exported as environment variable.
+Private key must be exported as environment variable:
+
 	- Linux:	export PK=your-privaye-key
 	- Windows:	set PK=your-privaye-key
 
