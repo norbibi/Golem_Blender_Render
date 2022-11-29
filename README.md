@@ -22,7 +22,7 @@ This application can be run on the following two subnets:
 - public-subnet on Polygon network
 
 For the first one nothing to do, rETH & tGLM will be funded automatically on your account.  
-For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNT PLEASE).
+For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNTS PLEASE).
 
 Private key must be exported as environment variable:
 
@@ -31,27 +31,27 @@ Private key must be exported as environment variable:
 
 Steps 1 & 2 are optional.
 
-**0) Clone repository**
+**0] Clone repository**
 
 	git clone https://github.com/norbibi/Golem_Blender_Render.git
 	cd Golem_Blender_Render
 
-**1) Build GVMI Golem_Blender_Render**
+**1] Build GVMI Golem_Blender_Render**
 
 	This image must be build in an environment without NVIDIA GPU (VM for example).
 
 	./build_gvmi.sh
 
-**2) Build docker image Golem_Blender_Render**
+**2] Build docker image Golem_Blender_Render**
 
 	docker build -t maugnorbert/golem_blender_render:latest Docker_Golem_Blender_Render
 
-**3) Run Golem Blender Render**
+**3] Run Golem Blender Render**
 
 	- Linux:	docker run --rm -ti -e PK=$PK -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $(pwd)/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
 	- Windows: 	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $%CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
 
-**4) How to use**
+**4] How to use**
 
 	In your browser go to http://localhost:3000
 
