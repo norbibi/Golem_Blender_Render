@@ -59,7 +59,7 @@ Steps 1 & 2 are optional.
 
 		In 'Subnet' section:
 			- Select subnet wanted
-![subnet](screenshots/subnet.png)  
+![subnet](screenshots/subnet.PNG)  
 
 		In 'Providers' section:
 			- Select hardware ressources of providers (threads, RAM, storage).
