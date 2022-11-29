@@ -9,6 +9,7 @@ Current limitation concerns compositing (especialy Render-Layer node).
 If your design contains compositing you will need to use providers with GPU, else compositing will be disabled.
 
 This repository contains 2 Blender project in blender_project_examples directory as examples:
+
 - 010_0020_A, main blend file is 010_0020_A.lighting, no compositing
 - blender-benchmark-class-room, main blend is classroom.blend, with compositing
 
@@ -16,6 +17,7 @@ In order to run this application you will need an Ethereum/Polygon account.
 Simplest way of creation is with Metamask.
 
 This application can be run on the following two subnets:
+
 - devnet-beta on Ethereum Rinkeby, free but with little providers
 - public-subnet on Polygon network
 
