@@ -1,4 +1,7 @@
--- # Golem Blender Render -- 
+<p align="center">
+	<h1>Golem Blender Render</h1>
+</p>
+<h1 style="text-align: center;">Test</h1>
 
 The purpose of this repository is to provide a decentralized tool to render your Blender projects.
 
@@ -36,13 +39,13 @@ Steps 1 & 2 are optional.
 	git clone https://github.com/norbibi/Golem_Blender_Render.git
 	cd Golem_Blender_Render
 
-**1] Build GVMI Golem_Blender_Render**
+**1] Build GVMI**
 
 	This image must be build in an environment without NVIDIA GPU (VM for example).
 
 	./build_gvmi.sh
 
-**2] Build docker image Golem_Blender_Render**
+**2] Build docker image**
 
 	docker build -t maugnorbert/golem_blender_render:latest Docker_Golem_Blender_Render
 
