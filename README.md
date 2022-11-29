@@ -1,4 +1,6 @@
-# Golem Blender Render  
+<p align="center">
+	# Golem Blender Render  
+</p>
 
 The purpose of this repository is to provide a decentralized tool to render your Blender projects.
 
@@ -60,7 +62,7 @@ Steps 1 & 2 are optional.
 		In 'Subnet' section:
 			- Select wanted subnet.
 <p align="center">
-<img src="screenshots/subnet.PNG" width="50%"> 
+	<img src="screenshots/subnet.PNG" width="50%"> 
 </p>
 
 		In 'Providers' section:
@@ -68,7 +70,7 @@ Steps 1 & 2 are optional.
 			- Specify how many workers you want to use.
 			- Select GPU if needed/wanted.
 <p align="center">
-<img src="screenshots/providers.PNG" width="50%"> 
+	<img src="screenshots/providers.PNG" width="50%"> 
 </p>
 
 		In 'Budget, Prices & Payment' section:
@@ -76,7 +78,7 @@ Steps 1 & 2 are optional.
 			- If enable, set the payment interval you allow.
 			- Set your maximum prices (start, thread & env).
 <p align="center">
-<img src="screenshots/prices.PNG" width="50%"> 
+	<img src="screenshots/prices.PNG" width="50%"> 
 </p>
 
 		In 'Timeouts' section:
@@ -84,7 +86,7 @@ Steps 1 & 2 are optional.
 			- Set your upload timeout (time to upload your design to providers, it depends on provider's internet link quality).
 			- Set your render timeout (time to render one frame, it depends on provider's ressources and design complexity).
 <p align="center">
-<img src="screenshots/timeouts.PNG" width="50%"> 
+	<img src="screenshots/timeouts.PNG" width="50%"> 
 </p>
 
 		In 'Project' section:
@@ -92,7 +94,7 @@ Steps 1 & 2 are optional.
 			- Select main blend file of your project in the blend file list.
 			- Select frames to render with the slide range.
 <p align="center">
-<img src="screenshots/project.PNG" width="50%"> 
+	<img src="screenshots/project.PNG" width="50%"> 
 </p>
 
 	Click run & wait
