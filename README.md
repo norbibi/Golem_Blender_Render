@@ -112,7 +112,7 @@ In your browser go to http://localhost:3000 and  configure your render job:
 ><summary>Project</summary>
 >	
 >- Select your project folder.
->- Select main blend file of your project in the blend file list.
+>- Select main blend file of your project.
 >- Select frames to render with the slide range.
 ><p align="center">
 >	<img src="screenshots/project.PNG" width="50%"> 
