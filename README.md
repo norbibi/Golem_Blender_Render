@@ -76,7 +76,7 @@ In your browser go to http://localhost:3000 and  configure your render job:
 ></details>
 >
 ><details>
-><summary>Providers</summary>
+><summary>Providers</summary>  
 >
 >- Select hardware ressources of providers (threads, RAM, storage).
 >- Specify how many workers you want to use.
