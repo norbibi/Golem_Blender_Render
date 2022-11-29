@@ -65,21 +65,25 @@ Steps 1 & 2 are optional.
 			- Select hardware ressources of providers (threads, RAM, storage).
 			- Specify how many workers you want to use.
 			- Select GPU if needed/wanted.
+![providers](screenshots/providers.PNG) 
 
 		In 'Budget, Prices & Payment' section:
 			- Set the maximum budget you allow for this job (job will be cancelled if reached).
 			- If enable, set the payment interval you allow.
 			- Set your maximum prices (start, thread & env).
+![prices](screenshots/prices.PNG) 
 
 		In 'Timeouts' section:
 			- Set your global timeout (time needed that you estimate to render all frames, job will be cancelled if reached).
 			- Set your upload timeout (time to upload your design to providers, it depends on provider's internet link quality).
 			- Set your render timeout (time to render one frame, it depends on provider's ressources and design complexity).
+![timeouts](screenshots/timeouts.PNG) 
 
 		In 'Project' section:
 			- Select your project folder.
 			- Select main blend file of your project in the blend file list.
 			- Select frames to render with the slide range.
+![project](screenshots/project.PNG) 
 
 	Click run & wait
 
