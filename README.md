@@ -1,7 +1,6 @@
-<p align="center">
+<div align="center">
 	<h1>Golem Blender Render</h1>
-</p>
-<h1 style="text-align: center;">Test</h1>
+</div>
 
 The purpose of this repository is to provide a decentralized tool to render your Blender projects.
 
@@ -21,16 +20,18 @@ Simplest way of creation is with Metamask.
 
 This application can be run on the following two subnets:  
 
-- devnet-beta on Ethereum Rinkeby
-- public-subnet on Polygon network
+- devnet-beta (payment on Ethereum Rinkeby)
+- public-subnet (payment on Polygon network)
 
 For the first one nothing to do, rETH & tGLM will be funded automatically on your account.  
 For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNTS PLEASE).
 
 Private key must be exported as environment variable:
 
-	- Linux:	export PK=your-privaye-key
-	- Windows:	set PK=your-privaye-key
+	- Linux:
+		export PK=your-privaye-key
+	- Windows:
+		set PK=your-privaye-key
 
 Steps 1 & 2 are optional.
 
@@ -51,52 +52,67 @@ Steps 1 & 2 are optional.
 
 **3] Run Golem Blender Render**
 
-	- Linux:	docker run --rm -ti -e PK=$PK -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $(pwd)/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
-	- Windows: 	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $%CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
+	- Linux:
+		docker run --rm -ti -e PK=$PK -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $(pwd)/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
+	- Windows:
+		docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $%CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
 
 **4] How to use**
 
-	In your browser go to http://localhost:3000
+	In your browser go to http://localhost:3000 and  configure your render job:
 
-	Configure your render job:
-
-		In 'Subnet' section:
-			- Select wanted subnet.
+<details>
+<summary>Subnet</summary>
+	
+	- Select wanted subnet.
 <p align="center">
 	<img src="screenshots/subnet.PNG" width="50%"> 
 </p>
+</details>
 
-		In 'Providers' section:
-			- Select hardware ressources of providers (threads, RAM, storage).
-			- Specify how many workers you want to use.
-			- Select GPU if needed/wanted.
+<details>
+<summary>Providers</summary>
+
+	- Select hardware ressources of providers (threads, RAM, storage).
+	- Specify how many workers you want to use.
+	- Select GPU if needed/wanted.
 <p align="center">
 	<img src="screenshots/providers.PNG" width="50%"> 
 </p>
+</details>
 
-		In 'Budget, Prices & Payment' section:
-			- Set the maximum budget you allow for this job (job will be cancelled if reached).
-			- If enable, set the payment interval you allow.
-			- Set your maximum prices (start, thread & env).
+<details>
+<summary>Budget, Prices & Payment</summary>
+	
+	- Set the maximum budget you allow for this job (job will be cancelled if reached).
+	- If enable, set the payment interval you allow.
+	- Set your maximum prices (start, thread & env).
 <p align="center">
 	<img src="screenshots/prices.PNG" width="50%"> 
 </p>
+</details>
 
-		In 'Timeouts' section:
-			- Set your global timeout (time needed that you estimate to render all frames, job will be cancelled if reached).
-			- Set your upload timeout (time to upload your design to providers, it depends on provider's internet link quality).
-			- Set your render timeout (time to render one frame, it depends on provider's ressources and design complexity).
+<details>
+<summary>Timeouts</summary>
+	
+	- Set your global timeout (time needed that you estimate to render all frames, job will be cancelled if reached).
+	- Set your upload timeout (time to upload your design to providers, it depends on provider's internet link quality).
+	- Set your render timeout (time to render one frame, it depends on provider's ressources and design complexity).
 <p align="center">
 	<img src="screenshots/timeouts.PNG" width="50%"> 
 </p>
+</details>
 
-		In 'Project' section:
-			- Select your project folder.
-			- Select main blend file of your project in the blend file list.
-			- Select frames to render with the slide range.
+<details>
+<summary>Project</summary>
+	
+	- Select your project folder.
+	- Select main blend file of your project in the blend file list.
+	- Select frames to render with the slide range.
 <p align="center">
 	<img src="screenshots/project.PNG" width="50%"> 
 </p>
+</details>
 
 	Click run & wait
 
