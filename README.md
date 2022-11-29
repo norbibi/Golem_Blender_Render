@@ -57,7 +57,9 @@ Steps 1 & 2 are optional.
 
 	Configure your render job:
 
-		Select subnet wanted
+		In 'Subnet' section:
+			- Select subnet wanted
+![subnet](screenshots/subnet.png)  
 
 		In 'Providers' section:
 			- Select hardware ressources of providers (threads, RAM, storage).
