@@ -22,7 +22,7 @@ This application can be run on the following two subnets:
 - public-subnet (payment on Polygon network)
 
 For the first one nothing to do, rETH & tGLM will be funded automatically on your account.  
-For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNTS PLEASE).
+For the second one, you will need few MATIC and GLM on your Polygon account (**small amounts please**).
 
 Private key must be exported as environment variable:
 
@@ -60,7 +60,7 @@ This image must be build in an environment without NVIDIA GPU (VM for example).
 ``` 
 - Windows:
 ``` 
-	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $%CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
+	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v %CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
 ``` 
 **5] How to use**
 
@@ -119,7 +119,7 @@ In your browser go to http://localhost:3000 and  configure your render job:
 ></p>
 ></details>
 
-Click run & wait :)
+Click run & wait :blush:
 
 **6] Notes:**
 
