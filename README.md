@@ -9,8 +9,8 @@ Current limitation concerns compositing (especialy Render-Layer node).
 If your design contains compositing you will need to use providers with GPU, else compositing will be disabled.
 
 This repository contains 2 Blender project in blender_project_examples directory as examples:
-	- 010_0020_A, main blend file is 010_0020_A.lighting, no compositing
-	- blender-benchmark-class-room, main blend is classroom.blend, with compositing
+- 010_0020_A, main blend file is 010_0020_A.lighting, no compositing
+- blender-benchmark-class-room, main blend is classroom.blend, with compositing
 
 In order to run this application you will need an Ethereum/Polygon account.
 Simplest way of creation is with Metamask.
@@ -46,8 +46,8 @@ Steps 1 & 2 are optional.
 
 3) Run Golem Blender Render
 
-	Linux:		docker run --rm -ti -e PK=$PK -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $(pwd)/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
-	Windows: 	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $%CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
+	- Linux:	docker run --rm -ti -e PK=$PK -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $(pwd)/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
+	- Windows: 	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v $%CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
 
 4) How to use
 
@@ -81,8 +81,11 @@ Steps 1 & 2 are optional.
 
 Notes:
 	- Refresh page abort render job.
+
 	- global timeout above 5h enable mid-agreement wivh seems to have a bug, so don't use for the moment
+
 	- your project frames (and Yagna log file) will be available in a subfolder (named and timestamped) of outputs directory.
+ 
  	- my gpu providers (RTX3090, 15 threads, 20 Gb RAM, 600Gb storage) prices are 0GLM/start, 0.015 GLM/thread/hour, 1 GLM/env/h,
  	  there are 2 on devnet-beta and 2 on public-beta.
 
