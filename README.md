@@ -65,7 +65,9 @@ Steps 1 & 2 are optional.
 			- Select hardware ressources of providers (threads, RAM, storage).
 			- Specify how many workers you want to use.
 			- Select GPU if needed/wanted.
+<p align="center">
 ![providers](screenshots/providers.PNG) 
+</p>
 
 		In 'Budget, Prices & Payment' section:
 			- Set the maximum budget you allow for this job (job will be cancelled if reached).
