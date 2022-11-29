@@ -60,7 +60,7 @@ Steps 1 & 2 are optional.
 		In 'Subnet' section:
 			- Select subnet wanted
 <p align="center">
-<img src="screenshots/subnet.PNG" width="75"> 
+<img src="screenshots/subnet.PNG" width="75%"> 
 </p>
 
 		In 'Providers' section:
