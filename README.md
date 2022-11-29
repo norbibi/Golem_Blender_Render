@@ -16,8 +16,8 @@ In order to run this application you will need an Ethereum/Polygon account.
 Simplest way of creation is with Metamask.
 
 This application can be run on 2 subnets:
-	-  devnet-beta on Ethereum Rinkeby, free but with little providers
-	-  public-subnet on Polygon network
+- devnet-beta on Ethereum Rinkeby, free but with little providers
+- public-subnet on Polygon network
 
 For the first one nothing to do, rETH & tGLM will be funded automatically on your account.
 For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNT PLEASE).
