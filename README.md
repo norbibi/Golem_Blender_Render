@@ -2,26 +2,24 @@
 
 The purpose of this repository is to provide a decentralized tool to render your Blender projects.
 
-This Web application run on top of Golem Network.
+This Web application run on top of Golem Network.  
 Frames will be rendered on remote providers selected by hardware ressources and prices.
 
-Current limitation concerns compositing (especialy Render-Layer node).
+Current limitation concerns compositing (especialy Render-Layer node).  
 If your design contains compositing you will need to use providers with GPU, else compositing will be disabled.
 
 This repository contains 2 Blender project in blender_project_examples directory as examples:
-
 - 010_0020_A, main blend file is 010_0020_A.lighting, no compositing
 - blender-benchmark-class-room, main blend is classroom.blend, with compositing
 
-In order to run this application you will need an Ethereum/Polygon account.
+In order to run this application you will need an Ethereum/Polygon account.  
 Simplest way of creation is with Metamask.
 
 This application can be run on the following two subnets:
-
-- devnet-beta on Ethereum Rinkeby, free but with little providers
+- devnet-beta on Ethereum Rinkeby
 - public-subnet on Polygon network
 
-For the first one nothing to do, rETH & tGLM will be funded automatically on your account.
+For the first one nothing to do, rETH & tGLM will be funded automatically on your account.  
 For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNT PLEASE).
 
 Private key must be exported as environment variable:
