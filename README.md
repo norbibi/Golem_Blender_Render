@@ -119,7 +119,7 @@ In your browser go to http://localhost:3000 and  configure your render job:
 ></p>
 ></details>
 
-Click run & wait
+Click run & wait :)
 
 **6] Notes:**
 
