@@ -59,15 +59,13 @@ Steps 1 & 2 are optional.
 
 		In 'Subnet' section:
 			- Select subnet wanted
-![subnet](screenshots/subnet.PNG)  
+<img src="screenshots/subnet.PNG"> 
 
 		In 'Providers' section:
 			- Select hardware ressources of providers (threads, RAM, storage).
 			- Specify how many workers you want to use.
 			- Select GPU if needed/wanted.
-<p align="center">
 ![providers](screenshots/providers.PNG) 
-</p>
 
 		In 'Budget, Prices & Payment' section:
 			- Set the maximum budget you allow for this job (job will be cancelled if reached).
