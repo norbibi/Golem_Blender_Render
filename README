@@ -1,7 +1,9 @@
-The goal of this repository is to provide a decentralized tool to render your Blender projects.
+# Golem Blender Render v1
+
+The purpose of this repository is to provide a decentralized tool to render your Blender projects.
 
 This Web application run on top of Golem Network.
-Frames will be rendered on remote providers selected by hardware specifications (threads, RAM, storage, GPU) and prices.
+Frames will be rendered on remote providers selected by hardware ressources and prices.
 
 Current limitation concerns compositing (especialy Render-Layer node).
 If your design contains compositing you will need to use providers with GPU, else compositing will be disabled.
