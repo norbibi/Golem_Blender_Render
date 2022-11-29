@@ -1,5 +1,5 @@
 <p align="center">
-	# Golem Blender Render  
+# Golem Blender Render  
 </p>
 
 The purpose of this repository is to provide a decentralized tool to render your Blender projects.
