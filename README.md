@@ -15,7 +15,7 @@ This repository contains 2 Blender project in blender_project_examples directory
 In order to run this application you will need an Ethereum/Polygon account.
 Simplest way of creation is with Metamask.
 
-This application can be run on 2 subnets:
+This application can be run on the following two subnets:
 - devnet-beta on Ethereum Rinkeby, free but with little providers
 - public-subnet on Polygon network
 
@@ -23,7 +23,6 @@ For the first one nothing to do, rETH & tGLM will be funded automatically on you
 For the second one, you will need few MATIC and GLM on your Polygon account (SMALL AMOUNT PLEASE).
 
 Private key must be exported as environment variable.
-
 	- Linux:	export PK=your-privaye-key
 	- Windows:	set PK=your-privaye-key
 
