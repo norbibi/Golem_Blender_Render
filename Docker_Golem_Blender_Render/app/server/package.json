@@ -1,0 +1,24 @@
+{
+  "name": "node_react_ap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^18.7.16",
+    "cors": "^2.8.5",
+    "ethereumjs-wallet": "^1.0.2",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
+    "secp256k1": "^4.0.3",
+    "strftime": "^0.10.1",
+    "tus-node-server": "^0.8.1",
+    "typescript": "^4.8.2",
+    "ws": "^8.8.1"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
