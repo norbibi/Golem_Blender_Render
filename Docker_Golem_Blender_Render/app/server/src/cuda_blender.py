@@ -70,12 +70,7 @@ async def main( payment_driver,
                 threads,
                 gpu,
                 scene,
-                frames,
-                use_bad_providers,
-                register_bad_providers_activity_create_failed,
-                register_bad_providers_task_rejected,
-                register_bad_providers_worker_finished,
-                register_bad_providers_batch_timeout,
+                frames
                 output_dir):
 
     if gpu == "None":
@@ -92,13 +87,12 @@ async def main( payment_driver,
     )
 
     def event_consumer(event: events.Event):
-        if use_bad_providers:
-            if isinstance(event, events.ActivityCreateFailed) and register_bad_providers_activity_create_failed:
-                bad_providers.add(event.provider_id)
-            elif isinstance(event, events.TaskRejected) and register_bad_providers_task_rejected:
-                bad_providers.add(event.provider_id)
-            elif isinstance(event, events.WorkerFinished) and register_bad_providers_worker_finished:
-                bad_providers.add(event.provider_id)
+        if isinstance(event, events.ActivityCreateFailed):
+            bad_providers.add(event.provider_id)
+        elif isinstance(event, events.TaskRejected):
+            bad_providers.add(event.provider_id)
+        elif isinstance(event, events.WorkerFinished):
+            bad_providers.add(event.provider_id)
 
         if isinstance(event, events.TaskAccepted):
             print('Task data ' + str(event.task.data) + ' accepted from provider ' + event.agreement.details.provider_node_info.name)
@@ -144,8 +138,7 @@ async def main( payment_driver,
                 script = ctx.new_script(timeout=timedelta(minutes=timeout_render))
 
         except BatchTimeoutError:
-            if use_bad_providers and register_bad_providers_batch_timeout:
-                bad_providers.add(ctx.provider_id)
+            bad_providers.add(ctx.provider_id)
             raise
 
     golem = Golem(
@@ -210,11 +203,6 @@ if __name__ == "__main__":
     parser.add_argument("--start-price", type=int)
     parser.add_argument("--cpu-price", type=int)
     parser.add_argument("--env-price", type=int)
-    parser.add_argument("--use-bad-providers", type=str)
-    parser.add_argument("--register-bad-providers-activity-create-failed", type=str)
-    parser.add_argument("--register-bad-providers-task-rejected", type=str)
-    parser.add_argument("--register-bad-providers-worker-finished", type=str)
-    parser.add_argument("--register-bad-providers-batch-timeout", type=str)
 
     args = parser.parse_args()
 
@@ -229,18 +217,6 @@ if __name__ == "__main__":
         debug_payment_api=True,
         debug_net_api=True,
     )
-
-    bad_providers_file = str(current_dir) + "/outputs/bad_providers.txt"
-
-    bool_use_bad_providers = (args.use_bad_providers == 'true')
-
-    if bool_use_bad_providers:
-        try:
-            with open(bad_providers_file, 'r') as filehandle:
-                for bad_provider in filehandle.readlines():
-                    bad_providers.add(bad_provider.rstrip())
-        except:
-            pass
 
     frames = list(range(args.start_frame, args.end_frame+1, 1))
 
@@ -263,20 +239,10 @@ if __name__ == "__main__":
             threads=args.threads,
             gpu=args.gpu,
             scene=args.scene,
-            frames=frames,
-            use_bad_providers=bool_use_bad_providers,
-            register_bad_providers_activity_create_failed=(args.register_bad_providers_activity_create_failed == 'true'),
-            register_bad_providers_task_rejected=(args.register_bad_providers_task_rejected == 'true'),
-            register_bad_providers_worker_finished=(args.register_bad_providers_worker_finished == 'true'),
-            register_bad_providers_batch_timeout=(args.register_bad_providers_batch_timeout == 'true'),
+            frames=frames
             output_dir=output_dir
         ))
     loop.run_until_complete(task)
-
-    if bool_use_bad_providers:
-        with open(bad_providers_file, 'w+') as filehandle:
-            for bad_provider in bad_providers:
-                filehandle.writelines(f"{bad_provider}\n")
 
     print('ShutdownFinished')
     sys.stdout.flush()
