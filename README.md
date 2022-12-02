@@ -28,11 +28,11 @@ Private key must be exported as environment variable:
 
 - Linux:
 ``` 
-	export PK=your-privaye-key
+	export PK=your-private-key
 ``` 
 - Windows:
 ``` 
-	set PK=your-privaye-key
+	set PK=your-private-key
 ``` 
 
 Steps 2 & 3 are optional.
