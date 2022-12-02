@@ -70,12 +70,6 @@ function App() {
 
   const [IPaymentEnable, SetIPaymentEnable] = useState(false);
 
-  const [UseBadProviders, FormUseBadProviders] = useFormToggleButton("ubp", "Use bad providers", false);
-  const [RegisterBadProvidersActivityCreateFailed, FormRegisterBadProvidersActivityCreateFailed] = useFormToggleButton("rbpacf", "Register bad providers activity create failed", false);
-  const [RegisterBadProvidersTaskRejected, FormRegisterBadProvidersTaskRejected] = useFormToggleButton("rbptr", "Register bad providers task rejected", false);
-  const [RegisterBadProvidersWorkerFinished, FormRegisterBadProvidersWorkerFinished] = useFormToggleButton("rbpwf", "Register bad provider worker finished", false);
-  const [RegisterBadProvidersBatchTimeout, FormRegisterBadProvidersBatchTimeout] = useFormToggleButton("rbpbt", "Register bad providers batch timeout", false);
-
   function CbUpload(item: any) {
     switch(item.file.name) {
         case 'scene.blend':
@@ -176,19 +170,6 @@ function App() {
     if (subnet === 'public-beta')
       network = 'polygon';
 
-    var rbpacf = RegisterBadProvidersActivityCreateFailed;
-    var rbptr = RegisterBadProvidersTaskRejected;
-    var rbpwf = RegisterBadProvidersWorkerFinished;
-    var rbpbt = RegisterBadProvidersBatchTimeout;
-
-    if (!UseBadProviders)
-    {
-      rbpacf = false;
-      rbptr = false;
-      rbpwf = false;
-      rbpbt = false;
-    }
-
     wsclient.SendMessage({
       command: "startApp",
       driver: 'erc20',
@@ -209,12 +190,7 @@ function App() {
       envPrice: EnvPrice,
       startFrame: (Frames as { min: any; max: any; }).min,
       endFrame: (Frames as { min: any; max: any; }).max,
-      scene: BlenderFile.webkitRelativePath,
-      useBadProviders: UseBadProviders,
-      registerBadProvidersActivityCreateFailed: rbpacf,
-      registerBadProvidersTaskRejected: rbptr,
-      registerBadProvidersWorkerFinished: rbpwf,
-      registerBadProvidersBatchTimeout: rbpbt
+      scene: BlenderFile.webkitRelativePath
     });
 
     var timeout = setInterval(function() {
@@ -299,17 +275,6 @@ function App() {
                   {FormPThreads}
                   {FormWorkers}
                   {FormGpu}
-                  <Form.Group className="mb-3">
-                    {FormUseBadProviders}
-                    <Collapse in={UseBadProviders}>
-                      <div>
-                        {FormRegisterBadProvidersActivityCreateFailed}
-                        {FormRegisterBadProvidersTaskRejected}
-                        {FormRegisterBadProvidersWorkerFinished}
-                        {FormRegisterBadProvidersBatchTimeout}
-                      </div>
-                    </Collapse>
-                  </Form.Group>
                 </div>
               </Collapse>
             </span>
