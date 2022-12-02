@@ -23,7 +23,7 @@ export function useFormControl(type: any, label: any, defaultValue: any) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const FormToggleButton = ({ setState, state, id, label }: any) => (
-	<ToggleButton id={id} className="mb-2" type="checkbox" variant="outline-primary" value="1" checked={state} onChange={e => {console.log(label, state); setState(e.currentTarget.checked)}}>{label}</ToggleButton>
+	<ToggleButton id={id} className="mb-2" type="checkbox" variant="outline-primary" value="1" checked={state} onChange={e => {setState(e.currentTarget.checked)}}>{label}</ToggleButton>
 );
 
 export function useFormToggleButton(id: any, label: any, defaultValue: any) {
