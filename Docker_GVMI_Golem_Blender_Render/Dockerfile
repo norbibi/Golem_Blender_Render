@@ -4,8 +4,6 @@ ENV TZ=Europe/Paris
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-COPY config-virt /usr/src/config-virt
-
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	wget \
 	kmod \
@@ -25,11 +23,11 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	libxrender1 \
 	libxfixes3 \
 	unzip \
-	nano \
 	mesa-utils \
 	xorg \
 	&& rm -rf /var/lib/apt/lists/*
 
+COPY config-virt /usr/src/config-virt
 RUN cd /usr/src \
 	&& wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.29.tar.xz \
 	&& tar xavf linux-5.10.29.tar.xz \
@@ -50,6 +48,7 @@ RUN tar -xf /opt/blender-3.1.2-linux-x64.tar.xz -C /opt
 RUN mv /opt/blender-3.1.2-linux-x64 /opt/blender
 RUN rm /opt/blender-3.1.2-linux-x64.tar.xz
 RUN ln -s /opt/blender/blender /usr/bin/blender
+COPY disable_compositing.py /usr/src/disable_compositing.py
 
 VOLUME /golem/work /golem/input /golem/output /golem/resources
 WORKDIR /golem/work

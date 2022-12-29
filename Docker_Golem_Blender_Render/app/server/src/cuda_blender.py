@@ -70,7 +70,7 @@ async def main( payment_driver,
                 threads,
                 gpu,
                 scene,
-                frames
+                frames,
                 output_dir):
 
     if gpu == "None":
@@ -79,7 +79,7 @@ async def main( payment_driver,
         capabilities=[f"cuda, {gpu}"]
 
     package = await vm.repo(
-		image_hash="020b63aad31ac3d2b761710f7e0a4796cd770eb895990f6b65712fc0",
+		image_hash="16135860d39d8d14f1deac5bfdf298fa0e74e24367d2bfd9353c2311",
         min_mem_gib=memory,
         min_storage_gib=storage,
         min_cpu_threads=threads,
@@ -239,7 +239,7 @@ if __name__ == "__main__":
             threads=args.threads,
             gpu=args.gpu,
             scene=args.scene,
-            frames=frames
+            frames=frames,
             output_dir=output_dir
         ))
     loop.run_until_complete(task)

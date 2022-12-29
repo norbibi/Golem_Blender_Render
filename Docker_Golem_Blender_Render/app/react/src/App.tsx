@@ -24,7 +24,8 @@ function App() {
   const AllCompatibleGpus = [ "None",
                               "GA102 [GeForce RTX 3090]"]
 
-  const AllSubnets = [ "devnet-beta",
+  const AllSubnets = [ "public",
+                       "devnet-beta",
                        "public-beta"]
 
   const [ProjectReceived, SetProjectReceived] = useState(false);
