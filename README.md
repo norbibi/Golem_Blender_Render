@@ -16,13 +16,8 @@ This repository contains two Blender project in blender_project_examples directo
 In order to run this application you will need an Ethereum/Polygon account.  
 Simplest way of creation is with Metamask.
 
-This application can be run on the following two subnets:  
-
-- devnet-beta (payment on Ethereum Rinkeby)
-- public-subnet (payment on Polygon network)
-
-For the first one nothing to do, rETH & tGLM will be funded automatically on your account.  
-For the second one, you will need few MATIC and GLM on your Polygon account (**small amounts please**).
+This application use Polygon network for payments.  
+You will need few MATIC and GLM on your Polygon wallet (**small amounts please**).
 
 Private key must be exported as environment variable:
 
@@ -43,8 +38,6 @@ Steps 2 & 3 are optional.
 	cd Golem_Blender_Render
 ``` 
 **2] Build GVMI**
-
-This image must be build in an environment without NVIDIA GPU (VM for example).
 ``` 
 	./build_gvmi.sh
 ``` 
@@ -66,15 +59,6 @@ This image must be build in an environment without NVIDIA GPU (VM for example).
 
 In your browser go to http://localhost:3000 and  configure your render job:
 
-><details>
-><summary>Subnet</summary>
->	
->- Select wanted subnet.
-><p align="center">
->	<img src="screenshots/subnet.PNG" width="50%"> 
-></p>
-></details>
->
 ><details>
 ><summary>Providers</summary>  
 >
@@ -127,4 +111,3 @@ Click run & wait :blush:
 - Global timeout above 5h enable mid-agreement wich seems to have a bug, so don't use for the moment.  
 - Your project frames (and Yagna log file) will be available in a subfolder (named and timestamped) of outputs directory.  
 - Polygon fees are proportional to the number of workers involved and upload time can be (very) long, so set number of providers as a fraction of number of frames (example: 15 providers for 145 frames).
-- My gpu providers (RTX3090, 15 threads, 20 Gb RAM, 600Gb storage) prices are 0GLM/start, 0.015 GLM/thread/hour, 1 GLM/env/h, there are 2 on devnet-beta and 2 on public-beta.  
