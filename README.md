@@ -13,11 +13,8 @@ This repository contains two Blender project in blender_project_examples directo
 - 010_0020_A (010_0020_A.lighting, no compositing)
 - blender-benchmark-class-room (classroom.blend, with compositing)
 
-In order to run this application you will need an Ethereum/Polygon account.  
+In order to run this application you will need an Polygon wallet with few MATIC and GLM.  
 Simplest way of creation is with Metamask.
-
-This application use Polygon network for payments.  
-You will need few MATIC and GLM on your Polygon wallet (**small amounts please**).
 
 Private key must be exported as environment variable:
 
