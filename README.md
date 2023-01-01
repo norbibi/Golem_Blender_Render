@@ -5,6 +5,10 @@ The purpose of this repository is to provide a decentralized tool to render your
 This Web application run on top of Golem Network.  
 Frames will be rendered on remote providers selected by hardware ressources and prices.
 
+<p align="center">
+	<img src="screenshots/app.png" width="100%"> 
+</p>
+
 Current limitation concerns compositing (specificaly Render-Layer node).  
 If your design contains compositing you will need to use providers with GPU, else compositing will be disabled.
 
