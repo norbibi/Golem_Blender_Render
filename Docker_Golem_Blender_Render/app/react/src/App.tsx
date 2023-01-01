@@ -24,10 +24,6 @@ function App() {
   const AllCompatibleGpus = [ "None",
                               "GA102 [GeForce RTX 3090]"]
 
-  const AllSubnets = [ "public",
-                       "devnet-beta",
-                       "public-beta"]
-
   const [ProjectReceived, SetProjectReceived] = useState(false);
   const [SceneAnalysed, SetSceneAnalysed] = useState(false);
 
@@ -40,7 +36,6 @@ function App() {
   const [Running, SetRunning] = useState(false);
   const [AppMessages, SetAppMessages] = useState<string[]>([]);
 
-  const [Subnet, FormSubnet] = useFormListSelect("Subnet", AllSubnets, 0);
   const [Budget, FormBudget] = useFormControl("number", "Budget", "10");
   const [Workers, FormWorkers] = useFormControl("number", "Workers", "15");
   const [BlenderProject, FormBlenderProject] = useFormInputDirectory("Blender project folder", sendProject);
@@ -166,16 +161,11 @@ function App() {
     SetCounter(0);
     SetProgression(0);
 
-    var network = 'rinkeby';
-    var subnet = AllSubnets[Subnet];
-    if (subnet === 'public-beta')
-      network = 'polygon';
-
     wsclient.SendMessage({
       command: "startApp",
       driver: 'erc20',
-      network: network,
-      subnet: subnet,
+      network: 'polygon',
+      subnet: 'public',
       timeoutUpload: TimeoutUpload,
       timeoutRender: TimeoutRender,
       timeoutGlobal: TimeoutGlobal,
@@ -263,7 +253,6 @@ function App() {
         <Col id="cll" xs="12" sm="12" md="12" lg="6" xl="6" xxl="6" className="d-flex align-items-left justify-content-left">
           <div className="square bg-info rounded" style={{width: "100%", paddingLeft: "20px", paddingRight: "20px",  paddingTop: "20px", paddingBottom: "20px",
                                                           height: "100%", marginLeft: "0px", marginRight: "0px",  marginTop: "0px", marginBottom: "12px", overflowY: "scroll"}}>
-            {FormSubnet}
 
             <span>
               <div className="d-grid gap-2">

@@ -79,7 +79,7 @@ async def main( payment_driver,
         capabilities=[f"cuda, {gpu}"]
 
     package = await vm.repo(
-		image_hash="16135860d39d8d14f1deac5bfdf298fa0e74e24367d2bfd9353c2311",
+		image_hash="38badf173192ef6731dddde88586d54af5cc5d825e6676271b5198b9",
         min_mem_gib=memory,
         min_storage_gib=storage,
         min_cpu_threads=threads,

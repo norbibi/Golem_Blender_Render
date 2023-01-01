@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
 	libxrender1 \
 	libxfixes3 \
 	libgl1 \
+	nano \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
@@ -36,7 +37,9 @@ RUN useradd golem -m
 
 ADD app /home/golem/app
 ADD start.sh /home/golem/start.sh
+
 RUN chmod +x /home/golem/start.sh
+RUN chmod +x /home/golem/app/server/start_yagna.sh
 
 RUN chown -R golem:golem /home/golem
 
