@@ -18,7 +18,6 @@ This repository contains two Blender project in blender_project_examples directo
 - blender-benchmark-class-room (classroom.blend, with compositing)
 
 In order to run this application you will need an Polygon wallet with few MATIC and GLM.  
-Simplest way of creation is with Metamask.
 
 Private key must be exported as environment variable:
 
