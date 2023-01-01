@@ -110,4 +110,3 @@ Click run & wait :blush:
 - Refreshing page abort current render job (if running).  
 - Global timeout above 5h enable mid-agreement wich seems to have a bug, so don't use for the moment.  
 - Your project frames (and Yagna log file) will be available in a subfolder (named and timestamped) of outputs directory.  
-- Polygon fees are proportional to the number of workers involved and upload time can be (very) long, so set number of providers as a fraction of number of frames (example: 15 providers for 145 frames).
