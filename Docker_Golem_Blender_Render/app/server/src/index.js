@@ -80,7 +80,6 @@ function startPythonApp(msg, ws){
 				    '--memory', msg.memory,
 				    '--storage', msg.storage,
 				    '--threads', msg.threads,
-				    '--gpu', msg.gpu,
 				    '--budget', msg.budget,
 				    '--interval-payment', msg.iPayment,
 				    '--start-price', msg.startPrice,

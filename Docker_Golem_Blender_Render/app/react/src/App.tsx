@@ -21,9 +21,6 @@ function App() {
 
   const size = useScreenSize();
 
-  const AllCompatibleGpus = [ "None",
-                              "GA102 [GeForce RTX 3090]"]
-
   const [ProjectReceived, SetProjectReceived] = useState(false);
   const [SceneAnalysed, SetSceneAnalysed] = useState(false);
 
@@ -41,7 +38,6 @@ function App() {
   const [BlenderProject, FormBlenderProject] = useFormInputDirectory("Blender project folder", sendProject);
   const [Frames, FormFrames] = useFormInputRange("Frames", MinStartFrame, MaxEndFrame);
   const [BlenderFile, FormBlenderFile] = useFormSelect("Blender file", BlenderProject, analyseScene);
-  const [Gpu, FormGpu] = useFormListSelect("Gpu", AllCompatibleGpus, 0);
 
   const [PMemory, FormPMemory] = useFormControl("number", "Memory (Gb)", "8");
   const [PStorage, FormPStorage] = useFormControl("number", "Storage (Gb)", "8");
@@ -173,7 +169,6 @@ function App() {
       memory: PMemory,
       storage: PStorage,
       threads: PThreads,
-      gpu: AllCompatibleGpus[Gpu],
       budget: Budget,
       iPayment: IPayment,
       startPrice: StartPrice,
@@ -264,7 +259,6 @@ function App() {
                   {FormPStorage}
                   {FormPThreads}
                   {FormWorkers}
-                  {FormGpu}
                 </div>
               </Collapse>
             </span>

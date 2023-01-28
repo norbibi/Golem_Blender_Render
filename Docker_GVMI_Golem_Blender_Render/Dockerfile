@@ -12,12 +12,14 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
 	xorg \
 	&& rm -rf /var/lib/apt/lists/*
 
-ADD https://download.blender.org/release/Blender3.1/blender-3.1.2-linux-x64.tar.xz /opt/
-RUN tar -xf /opt/blender-3.1.2-linux-x64.tar.xz -C /opt
-RUN mv /opt/blender-3.1.2-linux-x64 /opt/blender
-RUN rm /opt/blender-3.1.2-linux-x64.tar.xz
+ADD https://download.blender.org/release/Blender3.4/blender-3.4.1-linux-x64.tar.xz /opt/
+RUN tar -xf /opt/blender-3.4.1-linux-x64.tar.xz -C /opt
+RUN mv /opt/blender-3.4.1-linux-x64 /opt/blender
+RUN rm /opt/blender-3.4.1-linux-x64.tar.xz
 RUN ln -s /opt/blender/blender /usr/bin/blender
-COPY disable_compositing.py /usr/src/disable_compositing.py
+
+RUN cp /usr/lib64/xorg/modules/drivers/nvidia_drv.so /usr/lib/xorg/modules/drivers/
+RUN cp /usr/lib64/xorg/modules/extensions/libglxserver_nvidia.so /usr/lib/xorg/modules/extensions/
 
 VOLUME /golem/work /golem/input /golem/output /golem/resources
 WORKDIR /golem/work

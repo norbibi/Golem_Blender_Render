@@ -68,18 +68,14 @@ async def main( payment_driver,
                 memory,
                 storage,
                 threads,
-                gpu,
                 scene,
                 frames,
                 output_dir):
 
-    if gpu == "None":
-        capabilities=[]
-    else:
-        capabilities=[f"cuda, {gpu}"]
+    capabilities=["cuda"]
 
     package = await vm.repo(
-		image_hash="38badf173192ef6731dddde88586d54af5cc5d825e6676271b5198b9",
+		image_hash="4c79b7b1602d3d6f9d6c37fd7a5540724f9ef64c4a91c095f3d551a0",
         min_mem_gib=memory,
         min_storage_gib=storage,
         min_cpu_threads=threads,
@@ -107,22 +103,13 @@ async def main( payment_driver,
         try:
             script.run("/bin/sh", "-c", "(rm -rf /golem/output/*) || true")
             script.run("/bin/sh", "-c", "unzip -o /golem/resources/archive.zip -d /golem/resources/")
-
-            if gpu == "None":
-                cmd_display = "((Xorg :1 &) || true) && sleep 5"
-            else:
-                cmd_display = "PCIID=$(nvidia-xconfig --query-gpu-info | grep 'PCI BusID' | awk -F'PCI BusID : ' '{print $2}') && (nvidia-xconfig --busid=$PCIID --use-display-device=none --virtual=1280x1024 || true) && ((Xorg :1 &) || true) && sleep 5"
+            cmd_display = "PCIID=$(nvidia-xconfig --query-gpu-info | grep 'PCI BusID' | awk -F'PCI BusID : ' '{print $2}') && (nvidia-xconfig --busid=$PCIID --use-display-device=none --virtual=1280x1024 || true) && ((Xorg :1 &) || true) && sleep 5"
             script.run("/bin/sh", "-c", cmd_display)
 
             async for task in tasks:
 
                 frame = task.data
-
-                if gpu == "None":
-                    cmd_render = "(DISPLAY=:1 blender -b /golem/resources/" + scene + " --python /usr/src/disable_compositing.py -o /golem/output/ -noaudio -F PNG -f " + str(frame) + " -- --cycles-device CPU) || true"
-                else:
-                    cmd_render = "(DISPLAY=:1 blender -b /golem/resources/" + scene + " -o /golem/output/ -noaudio -F PNG -f " + str(frame) + " -- --cycles-device CUDA) || true"
-
+                cmd_render = "(DISPLAY=:1 blender -b /golem/resources/" + scene + " -o /golem/output/ -noaudio -F PNG -f " + str(frame) + " -- --cycles-device CUDA) || true"
                 script.run("/bin/sh", "-c", cmd_render)
                 output_file = f"{output_dir}/{frame:04d}.png"
                 future_result = script.download_file(f"/golem/output/{frame:04d}.png", output_file)
@@ -195,7 +182,6 @@ if __name__ == "__main__":
     parser.add_argument("--memory", type=int)
     parser.add_argument("--storage", type=int)
     parser.add_argument("--threads", type=int)
-    parser.add_argument("--gpu", type=str)
     parser.add_argument("--scene", type=str)
     parser.add_argument("--start-frame", type=int)
     parser.add_argument("--end-frame", type=int)
@@ -237,7 +223,6 @@ if __name__ == "__main__":
             memory=args.memory,
             storage=args.storage,
             threads=args.threads,
-            gpu=args.gpu,
             scene=args.scene,
             frames=frames,
             output_dir=output_dir
