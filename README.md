@@ -6,7 +6,7 @@ This Web application run on top of Golem Network.
 Frames will be rendered on remote providers selected by hardware ressources and prices.
 
 <p align="center">
-	<img src="screenshots/app.PNG" width="100%"> 
+	<img src="screenshots/app_wt.png" width="100%"> 
 </p>
 
 This repository contains two Blender project in blender_project_examples directory as examples:  
