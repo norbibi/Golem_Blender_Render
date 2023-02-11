@@ -11,8 +11,8 @@ Frames will be rendered on remote providers selected by hardware ressources and 
 
 This repository contains two Blender project in blender_project_examples directory as examples:  
 
-- 010_0020_A (010_0020_A.lighting, no compositing)
-- blender-benchmark-class-room (classroom.blend, with compositing)
+- 010_0020_A (010_0020_A.lighting)
+- blender-benchmark-class-room (classroom.blend)
 
 In order to run this application you will need an Polygon wallet with few MATIC and GLM.  
 
