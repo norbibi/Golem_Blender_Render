@@ -6,11 +6,8 @@ This Web application run on top of Golem Network.
 Frames will be rendered on remote providers selected by hardware ressources and prices.
 
 <p align="center">
-	<img src="screenshots/app.png" width="100%"> 
+	<img src="screenshots/app.PNG" width="100%"> 
 </p>
-
-Current limitation concerns compositing (specificaly Render-Layer node).  
-If your design contains compositing you will need to use providers with GPU, else compositing will be disabled.
 
 This repository contains two Blender project in blender_project_examples directory as examples:  
 
@@ -64,9 +61,8 @@ In your browser go to http://localhost:3000 and  configure your render job:
 >
 >- Select hardware ressources of providers (threads, RAM, storage).
 >- Specify how many workers you want to use.
->- Select GPU if needed/wanted.
 ><p align="center">
->	<img src="screenshots/providers.PNG" width="50%"> 
+>	<img src="screenshots/providers.png" width="50%"> 
 ></p>
 ></details>
 >
@@ -107,6 +103,5 @@ Click run & wait :blush:
 
 **6] Notes:**
 
-- Refreshing page abort current render job (if running).  
-- Global timeout above 5h enable mid-agreement wich seems to have a bug, so don't use for the moment.  
+- Refreshing page abort current render job (if running).   
 - Your project frames (and Yagna log file) will be available in a subfolder (named and timestamped) of outputs directory.  
