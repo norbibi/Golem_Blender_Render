@@ -1,0 +1,8 @@
+outputs/*
+Docker_Golem_Blender_Render/app/react/.env
+Docker_Golem_Blender_Render/app/react/node_modules
+Docker_Golem_Blender_Render/app/react/yarn.lock
+Docker_Golem_Blender_Render/app/server/inputs/archive.zip
+Docker_Golem_Blender_Render/app/server/inputs/scene.blend
+Docker_Golem_Blender_Render/app/server/node_modules
+Docker_Golem_Blender_Render/app/server/yarn.lock
