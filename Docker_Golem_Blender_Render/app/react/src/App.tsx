@@ -9,7 +9,8 @@ import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import JSZip from "jszip";
 import $ from 'jquery';
-import useScreenSize from 'use-screen-size'
+import useScreenSize from 'use-screen-size';
+import Web3 from 'web3';
 
 import { useFormControl, useFormInputDirectory, useFormInputRange, useFormInputRangeValue, useFormSelect, useFormListSelect, useFormToggleButton } from "./useForm";
 import { WsClient, Upload } from "./ComServer";
@@ -17,8 +18,41 @@ import { WsClient, Upload } from "./ComServer";
 const wsclient = new WsClient('ws://' + window.location.hostname + ':8000');
 const uploader = new Upload('http://' + window.location.hostname + ':3001/upload');
 
-function App() {
+const { REACT_APP_ADDR } = process.env;
 
+const matic_wallet_address = "0x9185748b999FAaf4188717d3E0389493F18316d6"
+
+const matic_rpc_endpoint = "https://rpc-mainnet.maticvigil.com"
+const web3 = new Web3(new Web3.providers.HttpProvider(matic_rpc_endpoint));
+
+const glm_token_address = "0x0B220b82F3eA3B7F6d9A1D8ab58930C064A2b5Bf"
+
+const token_abi = [
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_owner",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "name": "balance",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+
+const glm_token_contract = new web3.eth.Contract(token_abi as any, glm_token_address)
+
+function App()
+{
   const size = useScreenSize();
 
   const [ProjectReceived, SetProjectReceived] = useState(false);
@@ -61,6 +95,31 @@ function App() {
   const [CollapseProject, SetCollapseProject] = useState(false);
 
   const [IPaymentEnable, SetIPaymentEnable] = useState(false);
+
+  const [MaticBalance, SetMaticBalance] = useState("");
+  const [GlmBalance, SetGlmBalance] = useState("");
+
+  async function get_matic_balance()
+  {
+    const matic_balance_in_wei = await web3.eth.getBalance(REACT_APP_ADDR as string);
+    const matic_balance_in_matic = await web3.utils.fromWei(String(matic_balance_in_wei) as string, 'ether');
+    SetMaticBalance(matic_balance_in_matic);
+  }
+
+  async function get_glm_balance()
+  {
+    const glm_balance_in_wei = await glm_token_contract.methods.balanceOf(REACT_APP_ADDR as string).call();
+    const glm_balance_in_glm = await web3.utils.fromWei(String(glm_balance_in_wei) as string, 'ether');
+    SetGlmBalance(glm_balance_in_glm);
+  }
+
+  function update_balances()
+  {
+    get_matic_balance();
+    get_glm_balance();
+  }
+
+  update_balances();
 
   function CbUpload(item: any) {
     switch(item.file.name) {
@@ -228,6 +287,7 @@ function App() {
 
   useEffect(() => {
     SetProgression(Number((Counter*100/((Frames as { min: any; max: any; }).max-(Frames as { min: any; max: any; }).min+1)).toFixed(0)));
+    update_balances();
   }, [Counter]);
 
   useEffect(() => {
@@ -248,6 +308,14 @@ function App() {
         <Col id="cll" xs="12" sm="12" md="12" lg="6" xl="6" xxl="6" className="d-flex align-items-left justify-content-left">
           <div className="square bg-info rounded" style={{width: "100%", paddingLeft: "20px", paddingRight: "20px",  paddingTop: "20px", paddingBottom: "20px",
                                                           height: "100%", marginLeft: "0px", marginRight: "0px",  marginTop: "0px", marginBottom: "12px", overflowY: "scroll"}}>
+
+            <span>
+              <div className="d-grid gap-2">
+                <span style={{fontWeight: 'bold'}}>{REACT_APP_ADDR}</span>
+                <span style={{fontWeight: 'bold'}}>{MaticBalance} MATIC</span>
+                <span style={{fontWeight: 'bold'}}>{GlmBalance} GLM</span>
+              </div>
+            </span>
 
             <span>
               <div className="d-grid gap-2">

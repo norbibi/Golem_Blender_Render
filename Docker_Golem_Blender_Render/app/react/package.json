@@ -25,6 +25,7 @@
     "vue": "3",
     "vue-router": "4",
     "web-vitals": "^2.1.0",
+    "web3": "^1.8.2",
     "websocket": "^1.0.34"
   },
   "scripts": {
