@@ -20,8 +20,6 @@ const uploader = new Upload('http://' + window.location.hostname + ':3001/upload
 
 const { REACT_APP_ADDR } = process.env;
 
-const matic_wallet_address = "0x9185748b999FAaf4188717d3E0389493F18316d6"
-
 const matic_rpc_endpoint = "https://rpc-mainnet.maticvigil.com"
 const web3 = new Web3(new Web3.providers.HttpProvider(matic_rpc_endpoint));
 
