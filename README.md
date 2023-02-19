@@ -11,13 +11,12 @@ Frames will be rendered on remote providers selected by hardware ressources and 
 
 This repository contains two Blender project in blender_project_examples directory as examples:  
 
-- 010_0020_A (010_0020_A.lighting, no compositing)
-- blender-benchmark-class-room (classroom.blend, with compositing)
+- 010_0020_A (010_0020_A.lighting)
+- blender-benchmark-class-room (classroom.blend)
 
 In order to run this application you will need an Polygon wallet with few MATIC and GLM.  
 
-Private key must be exported as environment variable:
-
+**1] Export private key as environment variable**
 - Linux:
 ``` 
 	export PK=your-private-key
@@ -27,22 +26,12 @@ Private key must be exported as environment variable:
 	set PK=your-private-key
 ``` 
 
-Steps 2 & 3 are optional.
-
-**1] Clone repository**
+**2] Clone repository**
 ``` 
 	git clone https://github.com/norbibi/Golem_Blender_Render.git
 	cd Golem_Blender_Render
 ``` 
-**2] Build GVMI**
-``` 
-	./build_gvmi.sh
-``` 
-**3] Build docker image**
-``` 
-	docker build -t maugnorbert/golem_blender_render:latest Docker_Golem_Blender_Render
-``` 
-**4] Run Golem Blender Render**
+**3] Run Golem Blender Render**
 
 - Linux:
 ``` 
@@ -52,7 +41,7 @@ Steps 2 & 3 are optional.
 ``` 
 	docker run --rm -ti -e PK=%PK% -p 3000:3000 -p 3001:3001 -p 8000:8000 -v %CD%/outputs:/home/golem/app/server/outputs maugnorbert/golem_blender_render
 ``` 
-**5] How to use**
+**4] How to use**
 
 In your browser go to http://localhost:3000 and  configure your render job:
 
@@ -101,7 +90,7 @@ In your browser go to http://localhost:3000 and  configure your render job:
 
 Click run & wait :blush:
 
-**6] Notes:**
+**5] Notes:**
 
 - Refreshing page abort current render job (if running).   
 - Your project frames (and Yagna log file) will be available in a subfolder (named and timestamped) of outputs directory.  
